@@ -44,6 +44,7 @@ io.on('connection', (socket) => {
     socket.on('message entered', (data) => {
         console.log(`${users.get(socket.id)} entered: `, data);
         messages.push({ username: users.get(socket.id), message: data})
+        socket.broadcast.emit('update messages', messages);
     });
 
     // disconnect
