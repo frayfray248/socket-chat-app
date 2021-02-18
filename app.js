@@ -30,6 +30,12 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
     console.log('a user connected');
 
+    // username 
+    socket.on('username entered', (data) => {
+        console.log(data)
+    })
+
+    // disconnect
     socket.on('disconnect', () => {
         console.log('a user disconnected')
     })

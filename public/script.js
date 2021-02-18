@@ -1,14 +1,15 @@
 $(document).ready(function(){
 
-    var username = '';
-
     // username form submit handler
     $('#usernameForm').on('submit', function(event) {
         event.preventDefault();
 
-        username = $('#usernameInput').val();
+        const username = $('#usernameInput').val();
+
+        socket.emit('username entered', username);
 
         $(this).hide();
         $('#publicChatBoard').show();
     });
+  
   });
