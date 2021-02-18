@@ -32,6 +32,10 @@ $(document).ready(function(){
             </tr>
         `);
 
+        // set scroll top to bottom
+        const chatBoardElement = $('#chatBoard')[0];
+        chatBoardElement.scrollTop = chatBoardElement.scrollHeight;
+
         $messageInput.val('');
     });
 
