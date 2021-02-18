@@ -19,7 +19,9 @@ $(document).ready(function(){
     $('#messageForm').on('submit', function(event) {
         event.preventDefault();
 
-        const message = $('#messageInput').val();
+        const $messageInput = $('#messageInput');
+
+        const message = $messageInput.val();
 
         socket.emit('message entered', message);
 
@@ -29,6 +31,8 @@ $(document).ready(function(){
                 <td>${message}</td>
             </tr>
         `);
+
+        $messageInput.val('');
     });
 
 
