@@ -27,6 +27,11 @@ app.get('/', (req, res) => {
 
 // state
 var users = new Map();
+var messages = [
+    { username: 'John', message: 'Hello world!'},
+    { username: 'Jane', message: 'Hello'},
+    { username: 'Zack', message: 'Sup'}
+]
 
 // socket handlers
 io.on('connection', (socket) => {
@@ -36,6 +41,7 @@ io.on('connection', (socket) => {
     socket.on('username entered', (data) => {
         users.set(socket.id, data);
         console.log(`client ${socket.id} registered username:`, data);
+        socket.emit('update messages', messages)
     })
 
     // disconnect
