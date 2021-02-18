@@ -1,9 +1,9 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
     var clientUserName = '';
 
     // username form submit handler
-    $('#usernameForm').on('submit', function(event) {
+    $('#usernameForm').on('submit', function (event) {
         event.preventDefault();
 
         const username = $('#usernameInput').val();
@@ -15,8 +15,21 @@ $(document).ready(function(){
         $('#publicChatBoard').show();
     });
 
+    // clear all messages from chat board
+    function clearMessages() { $('#publicChatBoard tbody').empty() };
+
+    // add a user's message to the chat board
+    function addUserMessage(userMessage) {
+        $('#publicChatBoard tbody').append(`
+            <tr>
+                <th class="text-right">${userMessage.username}</th>
+                <td class="text-left">${userMessage.message}</td>
+            </tr>
+        `);
+    }
+
     // message form event handler
-    $('#messageForm').on('submit', function(event) {
+    $('#messageForm').on('submit', function (event) {
         event.preventDefault();
 
         const $messageInput = $('#messageInput');
@@ -25,12 +38,7 @@ $(document).ready(function(){
 
         socket.emit('message entered', message);
 
-        $('#publicChatBoard tbody').append(`
-            <tr>
-                <th class="text-right">${clientUserName}</th>
-                <td class="text-left">${message}</td>
-            </tr>
-        `);
+        addUserMessage({username: clientUserName, message})
 
         // set scroll top to bottom
         const chatBoardElement = $('#chatBoard')[0];
@@ -41,21 +49,9 @@ $(document).ready(function(){
 
 
     // update messages event handler
-    socket.on('update messages', function(data) {
-        $('#publicChatBoard tbody').empty();
+    socket.on('update messages', function (data) {
+        clearMessages();
 
-        for (const userMessage of data) {
-
-            $('#publicChatBoard tbody').append(`
-                <tr>
-                    <th class="text-right">${userMessage.username}</th>
-                    <td class="text-left">${userMessage.message}</td>
-                </tr>
-            `);
-            
-        }
+        for (const userMessage of data) { addUserMessage(userMessage)};
     });
-
-    
-  
-  });
+});
