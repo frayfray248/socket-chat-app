@@ -17,7 +17,6 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-
 // serve static public folder
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -26,13 +25,17 @@ app.get('/', (req, res) => {
     res.render("index");
 })
 
+// state
+var users = new Map();
+
 // socket handlers
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    console.log('a user connected', socket.id);
 
-    // username 
+    // username entered
     socket.on('username entered', (data) => {
-        console.log(data)
+        users.set(socket.id, data);
+        console.log(`client ${socket.id} registered username:`, data);
     })
 
     // disconnect
