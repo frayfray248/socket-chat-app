@@ -9,13 +9,31 @@
 </head>
 
 <body>
-
     <h1>Socket Chat</h1>
-    <form>
+
+    <!-- Landing-->
+    <form id="usernameForm">
         <label for="username">Username:</label>
-        <input type='text' placeholder="John Wick" name="username">
+        <input id="usernameInput" type='text' placeholder="John Wick" required name="username">
         <input type="submit" value="Chat!">
     </form>
+
+    <!-- Public Chat Board -->
+    <div id="publicChatBoard" style="display: none;">
+        <table>
+            <thead>
+                <th>User</th>
+                <th>Message</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <form id="messageForm">
+            <input type='text' placeholder="Hello..." name="message">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script> var socket = io();</script>
