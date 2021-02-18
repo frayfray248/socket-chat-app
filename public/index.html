@@ -5,36 +5,50 @@
 <head>
     <meta charset="utf-8">
     <title>Socket Chat</title>
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- custom styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
+
+
 <body>
-    <h1>Socket Chat</h1>
 
-    <!-- Landing-->
-    <form id="usernameForm">
-        <label for="username">Username:</label>
-        <input id="usernameInput" type='text' placeholder="John Wick" required name="username">
-        <input type="submit" value="Chat!">
-    </form>
 
-    <!-- Public Chat Board -->
-    <div id="publicChatBoard" style="display: none;">
-        <table>
-            <thead>
-                <tr>
-                    <th>User</th>
-                    <th>Message</th>
-                </tr>
-            </thead>
-            <tbody>
+    <div class="container text-center">
+        <div class="jumbotron">
 
-            </tbody>
-        </table>
-        <form id="messageForm">
-            <input id="messageInput" type='text' placeholder="Hello..." name="message">
-            <input type="submit" value="Submit">
-        </form>
+            <h1>Socket Chat</h1>
+            <!-- Landing-->
+            <form id="usernameForm">
+                <label for="username">Username:</label>
+                <input id="usernameInput" type='text' placeholder="John Wick" required name="username">
+                <input type="submit" value="Chat!">
+            </form>
+
+            <!-- Public Chat Board -->
+            <div id="publicChatBoard" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <form id="messageForm">
+                    <input id="messageInput" type='text' placeholder="Hello..." name="message">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
