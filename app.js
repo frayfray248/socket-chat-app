@@ -2,9 +2,18 @@
 const express = require('express');
 const http = require('http');
 
+// dotenv
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
+// environment vars
+const PORT = process.env.PORT;
+
 // objects
 const app = express();
 const server = http.createServer(app);
+
 
 // root
 app.use('/', (req, res) => {
@@ -12,4 +21,4 @@ app.use('/', (req, res) => {
 });
 
 // server start
-server.listen(3000, console.log('Listening on port 3000'));
+server.listen(PORT, console.log(`Listening on port ${PORT}`));
