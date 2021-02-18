@@ -9,3 +9,11 @@
 .w-15prc {
     width: 15%;
 }
+
+.table-fixed {
+    table-layout: fixed;
+}
+
+td {
+    word-wrap: break-word;
+}
