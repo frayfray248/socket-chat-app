@@ -2,6 +2,7 @@
 const express = require('express');
 const http = require('http');
 const socketIO = require("socket.io");
+const path = require('path');
 
 // dotenv
 if (process.env.NODE_ENV !== 'production') {
@@ -17,16 +18,13 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 
+// serve static public folder
+app.use(express.static(path.join(__dirname, "public")));
+
 // root
-app.use('/', (req, res) => {
-    res.status(200).send(`
-    <h1>Hello World<h1>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io();
-    </script>
-    `);
-});
+app.get('/', (req, res) => {
+    res.render("index");
+})
 
 // socket handlers
 io.on('connection', (socket) => {

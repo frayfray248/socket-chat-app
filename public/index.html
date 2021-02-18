@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Socket Chat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <h1>Socket Chat</h1>
+    <form>
+        <label for="username">Username:</label>
+        <input type='text' placeholder="John Wick" name="username">
+        <input type="submit" value="Chat!">
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script> var socket = io();</script>
+    <script src="script.js"></script>
+</body>
+
+</html>
