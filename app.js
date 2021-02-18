@@ -41,8 +41,14 @@ io.on('connection', (socket) => {
     socket.on('username entered', (data) => {
         users.set(socket.id, data);
         console.log(`client ${socket.id} registered username:`, data);
-        socket.emit('update messages', messages)
+        socket.emit('update messages', messages);
     })
+
+    // message entered
+    socket.on('message entered', (data) => {
+        console.log(`${users.get(socket.id)} entered: `, data);
+        messages.push({ username: users.get(socket.id), message: data})
+    });
 
     // disconnect
     socket.on('disconnect', () => {
