@@ -27,8 +27,8 @@ $(document).ready(function(){
 
         $('#publicChatBoard tbody').append(`
             <tr>
-                <th>${clientUserName}</th>
-                <td>${message}</td>
+                <th class="text-right">${clientUserName}</th>
+                <td class="text-left">${message}</td>
             </tr>
         `);
 
@@ -48,8 +48,8 @@ $(document).ready(function(){
 
             $('#publicChatBoard tbody').append(`
                 <tr>
-                    <th>${userMessage.username}</th>
-                    <td>${userMessage.message}</td>
+                    <th class="text-right">${userMessage.username}</th>
+                    <td class="text-left">${userMessage.message}</td>
                 </tr>
             `);
             
