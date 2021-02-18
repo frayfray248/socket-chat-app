@@ -1,3 +1,7 @@
 .il-flex {
     display: inline-flex;
 }
+
+.h-300 {
+    height: 300px;
+}

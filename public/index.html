@@ -37,17 +37,22 @@
 
             <!-- Public Chat Board -->
             <div id="publicChatBoard" style="display: none;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>User</th>
-                            <th>Message</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <!-- Chat Board -->
+                <div class="border border-dark h-300 overflow-auto">
+                    <table class="table table-sm table-light table-striped">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Chat Form -->
                 <form id="messageForm" class="form-inline">
                     <div class="form-group">
                         <input id="messageInput" class="form-control" type='text' placeholder="Hello..." name="message">
