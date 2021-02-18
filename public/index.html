@@ -24,11 +24,16 @@
 
             <h1>Socket Chat</h1>
             <!-- Landing-->
-            <form id="usernameForm">
-                <label for="username">Username:</label>
-                <input id="usernameInput" type='text' placeholder="John Wick" required name="username">
-                <input type="submit" value="Chat!">
-            </form>
+            <div id="landing">
+                <p>Enter a username and start chatting!</p>
+                <form id="usernameForm" class="form-inline il-flex">
+                    <div class="form-group">
+                        <input id="usernameInput" class="form-control" type='text' placeholder="John Wick" required
+                            name="username">
+                    </div>
+                    <button class="btn btn-primary" type="submit" value="Chat!">Chat</button>
+                </form>
+            </div>
 
             <!-- Public Chat Board -->
             <div id="publicChatBoard" style="display: none;">

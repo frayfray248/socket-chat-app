@@ -11,7 +11,7 @@ $(document).ready(function(){
 
         socket.emit('username entered', username);
 
-        $(this).hide();
+        $('#landing').hide();
         $('#publicChatBoard').show();
     });
 
