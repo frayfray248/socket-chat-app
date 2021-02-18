@@ -27,11 +27,7 @@ app.get('/', (req, res) => {
 
 // state
 var users = new Map();
-var messages = [
-    { username: 'John', message: 'Hello world!'},
-    { username: 'Jane', message: 'Hello'},
-    { username: 'Zack', message: 'Sup'}
-]
+var messages = []
 
 // socket handlers
 io.on('connection', (socket) => {
